@@ -1,12 +1,12 @@
 package edu.joseph.crudclient.service.exceptions;
 
-public class ResorceNotFound extends RuntimeException{
+public class ResourceNotFound extends RuntimeException{
 
-    public ResorceNotFound(Object id) {
+    public ResourceNotFound(Object id) {
         super("Resource not found. id: " + id);
     }
 
-    public ResorceNotFound() {
+    public ResourceNotFound() {
         super("Resource not found.");
     }
 }

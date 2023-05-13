@@ -9,10 +9,13 @@ import java.util.List;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
     @Query(nativeQuery = true, value = """
-            SELECT tb_client.id, tb_client.name
+            SELECT *
             FROM tb_client
-            WHERE :text
-            ORDER BY tb_client.id
+            WHERE name LIKE CONCAT('%', :text, '%')
+            OR cpf = :text
+            ORDER BY id
             """)
     List<Client> findByString(String text);
+
+
 }
