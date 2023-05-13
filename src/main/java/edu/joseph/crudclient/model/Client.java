@@ -1,5 +1,6 @@
 package edu.joseph.crudclient.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import edu.joseph.crudclient.model.ageverification.AgeRestriction;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -8,7 +9,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import java.time.LocalDate;
 
 @Entity
-@Table
+@Table(name = "tb_client")
 public class Client {
 
     @Id
@@ -16,7 +17,7 @@ public class Client {
     private Long id;
 
     @NotBlank
-    @Size(min = 15, max = 60, message = "Invalid name size ")
+    @Size(min = 10, max = 60, message = "Invalid name size ")
     private String name;
 
     @CPF
@@ -24,11 +25,11 @@ public class Client {
     private String cpf;
 
     @PositiveOrZero
-    @Digits(integer = 6, fraction = 2, message = "Invalid income")
-    private Double income;
+    private Double salary;
 
     @AgeRestriction
     @NotNull
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate birthDate;
 
     @PositiveOrZero
@@ -37,11 +38,11 @@ public class Client {
     public Client() {
     }
 
-    public Client(Long id, String name, String cpf, Double income, LocalDate birthDate, Integer children) {
+    public Client(Long id, String name, String cpf, Double salary, LocalDate birthDate, Integer children) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
-        this.income = income;
+        this.salary = salary;
         this.birthDate = birthDate;
         this.children = children;
     }
@@ -70,12 +71,12 @@ public class Client {
         this.cpf = cpf;
     }
 
-    public Double getIncome() {
-        return income;
+    public Double getSalary() {
+        return salary;
     }
 
-    public void setIncome(Double income) {
-        this.income = income;
+    public void setSalary(Double salary) {
+        this.salary = salary;
     }
 
     public LocalDate getBirthDate() {

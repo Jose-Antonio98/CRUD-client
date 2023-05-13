@@ -9,10 +9,10 @@ import java.util.List;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
     @Query(nativeQuery = true, value = """
-            SELECT client.id, client.name
-            FROM client
+            SELECT tb_client.id, tb_client.name
+            FROM tb_client
             WHERE :text
-            ORDER BY client.id
+            ORDER BY tb_client.id
             """)
     List<Client> findByString(String text);
 }
