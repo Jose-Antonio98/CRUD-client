@@ -19,7 +19,7 @@ public class Test implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        var client1 = new Client(null,"João Silva",
+        var client1 = new Client(null, "João Silva",
                 "123.456.789-09", 5000.00, LocalDate.parse("1990-01-15"), 2);
 
         var client2 = new Client(null, "Maria Santos",

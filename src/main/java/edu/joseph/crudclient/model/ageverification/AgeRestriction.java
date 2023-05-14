@@ -15,6 +15,8 @@ import java.lang.annotation.Target;
 @Past
 public @interface AgeRestriction {
     String message() default "Person must be over 18 years old";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }

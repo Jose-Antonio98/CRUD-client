@@ -3,8 +3,10 @@ package edu.joseph.crudclient.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import edu.joseph.crudclient.model.ageverification.AgeRestriction;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import org.hibernate.validator.constraints.UniqueElements;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
